@@ -1,32 +1,32 @@
-
 //timer
 console.time();
-
-
-// slow scroll
-function pageScroll() {
-    window.scrollBy(0,50);
-    scrolldelay = setTimeout('pageScroll()',100);
-                      }
-
-<body onLoad="pageScroll()">
-
 
 
 var canvas = document.getElementById("canvas");
 var beams = document.getElementById("beams");
 var y = window.pageYOffset;
 
-// going.style.top = Xpos
+var whoah = document.getElementById("whoah");
+whoah.style.cssText = 'display:none;position:absolute;top:300px;left:0px;z-index:1;';
 
 window.onscroll = function(){
 
 
   var y = window.pageYOffset;
 
-  console.log(y);
+  if(y - 4300>0)
+	{
+		whoah.style.display = "block";
+	}
+	else
+	{
+		whoah.style.display = "none";
+	}
 
+  console.log;
 
+	whoah.style.left = y - 4300 + 'px';
+	whoah.style.top = (y + 300) + 'px';
 //
 //   beam1.style.top = 1000 + y * -2 + "px";
 //   beam2.style.top = 2000 + y * -1.5 + "px";
@@ -78,15 +78,14 @@ setInterval(myFunction, 1000);
 		beam.style.left = Xpos;
 		document.body.appendChild(beam);
 		var pos = -300;
-		var id = setInterval(frame, 1);
+		var id = setInterval(frame, 10);
 		function frame() {
-			// if (pos >= document.documentElement.clientHeight ||
-			if (pos >= 10000 + 'px' ||
+			if (pos >= document.documentElement.clientHeight ||
 				Xpos > document.documentElement.clientWidth) {
 				beam.remove();
 			} else {
 				pos++;
-				beam.style.top = pos + 'px';
+				beam.style.top = (pos*10) + 'px';
 			}
 		}
 		setTimeout(function(){ beam.remove(); }, 60000);
