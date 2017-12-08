@@ -3,17 +3,30 @@
 console.time();
 
 
+// slow scroll
+function pageScroll() {
+    window.scrollBy(0,50);
+    scrolldelay = setTimeout('pageScroll()',100);
+                      }
 
-// var canvas = document.getElementById("canvas");
-// var beams = document.getElementById("beams");
-// var y = window.pageYOffset;
-//
-// window.onscroll = function(){
-//
-//
-//   var y = window.pageYOffset;
-//
-//   console.log(y);
+<body onLoad="pageScroll()">
+
+
+
+var canvas = document.getElementById("canvas");
+var beams = document.getElementById("beams");
+var y = window.pageYOffset;
+
+// going.style.top = Xpos
+
+window.onscroll = function(){
+
+
+  var y = window.pageYOffset;
+
+  console.log(y);
+
+
 //
 //   beam1.style.top = 1000 + y * -2 + "px";
 //   beam2.style.top = 2000 + y * -1.5 + "px";
@@ -27,7 +40,7 @@ console.time();
 //   beam10.style.top = 10500 + y * -.5 + "px";
 //   beam11.style.top = 11000 + y * -1 + "px";
 //
-// };
+};
 
 // random beam gen
 // function moveBeam() {
